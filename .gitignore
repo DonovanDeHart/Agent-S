@@ -162,3 +162,13 @@ cython_debug/
 #.idea/
 logs/
 .DS_Store
+# AgentS workspace (meta-repo) ignores
+/repo/
+/cache/
+/venv/
+/logs/
+
+# Optional: ignore large snapshots if you generate them
+/config/*.zip
+/config/*snapshot*
+/config/*venv*

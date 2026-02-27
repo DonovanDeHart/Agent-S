@@ -341,11 +341,8 @@ class LMMEnginevLLM(LMMEngine):
         max_new_tokens=512,
         **kwargs,
     ):
-        api_key = self.api_key or os.getenv("vLLM_API_KEY")
-        if api_key is None:
-            raise ValueError(
-                "A vLLM API key needs to be provided in either the api_key parameter or as an environment variable named vLLM_API_KEY"
-            )
+        # For vLLM/Ollama endpoints, API key is optional (use placeholder if not provided)
+        api_key = self.api_key or os.getenv("vLLM_API_KEY") or "ollama"
         base_url = self.base_url or os.getenv("vLLM_ENDPOINT_URL")
         if base_url is None:
             raise ValueError(
